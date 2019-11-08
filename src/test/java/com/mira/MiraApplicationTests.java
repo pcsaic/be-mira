@@ -1,4 +1,4 @@
-package com.mira.mira;
+package com.mira;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

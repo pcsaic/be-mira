@@ -1,4 +1,4 @@
-package com.mira.mira;
+package com.mira;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
