@@ -8,7 +8,7 @@ import com.mira.service.EventService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -53,7 +53,7 @@ public class EventServiceImpl implements EventService {
                             newEvent.setEventType(event.getEventType());
                             newEvent.setRelatedPersonsIds(event.getRelatedPersonsIds());
                             newEvent.setTaskId(event.getTaskId());
-                            newEvent.setUpdatedDate(ZonedDateTime.now());
+                            newEvent.setUpdatedDate(LocalDateTime.now());
                             newEvent.setUpdatedPersonId(UUID.randomUUID()); /*hardcode!*/
                             return eventRepository.save(newEvent);
                         }

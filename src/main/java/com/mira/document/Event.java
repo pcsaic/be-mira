@@ -5,7 +5,7 @@ import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
 
@@ -14,16 +14,17 @@ import java.util.UUID;
 public class Event {
 
     @Id
+    @NonNull
     private UUID id;
 
     @NonNull
     private String title;
 
     @NonNull
-    private ZonedDateTime startDate;
+    private LocalDateTime startDate;
 
     @NonNull
-    private ZonedDateTime updatedDate;
+    private LocalDateTime updatedDate;
 
     @NonNull
     private UUID updatedPersonId;

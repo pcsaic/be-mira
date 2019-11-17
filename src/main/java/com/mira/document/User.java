@@ -12,6 +12,7 @@ import java.util.UUID;
 public class User {
 
     @Id
+    @NonNull
     private UUID id;
 
     @NonNull
