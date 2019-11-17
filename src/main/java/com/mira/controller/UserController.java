@@ -3,12 +3,10 @@ package com.mira.controller;
 import com.mira.document.User;
 import com.mira.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -25,5 +23,20 @@ public class UserController {
     @GetMapping(value = "/{id}")
     public User getUser(@PathVariable String id){
         return userService.getUser(id);
+    }
+
+    @PostMapping
+    public User createUser(@RequestBody User user) {
+        return userService.createUser(user);
+    }
+
+    @PutMapping
+    public User updateUser(@RequestBody User user) {
+        return userService.updateUser(user);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public void deleteUser(@PathVariable (value = "id") UUID uuid){
+        userService.deleteUser(uuid);
     }
 }

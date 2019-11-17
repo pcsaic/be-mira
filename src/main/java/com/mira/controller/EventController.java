@@ -5,12 +5,10 @@ import com.mira.document.EventStatus;
 import com.mira.document.EventType;
 import com.mira.service.EventService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -37,5 +35,20 @@ public class EventController {
     @GetMapping(value = "/status")
     public List<Event> getAllEventsByStatus(@PathVariable EventStatus eventStatus) {
         return eventService.getAllEventsByStatus(eventStatus);
+    }
+
+    @PostMapping
+    public Event createEvent(@RequestBody Event event){
+        return eventService.createEvent(event);
+    }
+
+    @PutMapping
+    public Event updateEvent(@RequestBody Event event){
+        return eventService.updateEvent(event);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public void deleteEvent(@PathVariable("id") UUID uuid){
+         eventService.deleteEvent(uuid);
     }
 }

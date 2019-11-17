@@ -11,7 +11,8 @@ public enum EventStatus {
     TODO("todo"),
     INPROGRESS("inProgress"),
     DONE("done"),
-    BLOCK("block");
+    BLOCK("block"),
+    REMOVED("removed");
 
     private final String value;
 }
