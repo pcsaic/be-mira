@@ -1,6 +1,8 @@
 package com.mira.controller;
 
 import com.mira.document.Event;
+import com.mira.document.EventStatus;
+import com.mira.document.EventType;
 import com.mira.service.EventService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,12 +20,22 @@ public class EventController {
     private final EventService eventService;
 
     @GetMapping(value = "/all")
-    public List<Event> getAllEvent(){
+    public List<Event> getAllEvents() {
         return eventService.getAllEvents();
     }
 
     @GetMapping(value = "/{id}")
-    public Event getEvent(@PathVariable String id){
+    public Event getEvent(@PathVariable String id) {
         return eventService.getEvent(id);
+    }
+
+    @GetMapping(value = "/{type}")
+    public List<Event> getAllEventsByType(@PathVariable EventType eventType) {
+        return eventService.getAllEventsByType(eventType);
+    }
+
+    @GetMapping(value = "/status")
+    public List<Event> getAllEventsByStatus(@PathVariable EventStatus eventStatus) {
+        return eventService.getAllEventsByStatus(eventStatus);
     }
 }

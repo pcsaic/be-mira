@@ -1,6 +1,8 @@
 package com.mira.service.impl;
 
 import com.mira.document.Event;
+import com.mira.document.EventStatus;
+import com.mira.document.EventType;
 import com.mira.repository.EventRepository;
 import com.mira.service.EventService;
 import lombok.RequiredArgsConstructor;
@@ -23,5 +25,15 @@ public class EventServiceImpl implements EventService {
     @Override
     public Event getEvent(String id) {
         return eventRepository.findById(UUID.fromString(id)).orElse(null);
+    }
+
+    @Override
+    public List<Event> getAllEventsByStatus(EventStatus eventStatus) {
+        return eventRepository.findAllByEventStatus(eventStatus);
+    }
+
+    @Override
+    public List<Event> getAllEventsByType(EventType eventType) {
+        return eventRepository.findAllByEventType(eventType);
     }
 }
